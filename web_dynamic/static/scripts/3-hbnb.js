@@ -35,14 +35,16 @@ $('document').ready(function () {
         article.append(titleBox);
 
         let information = $("<div>").addClass("information");
-        information.append("<div class='max_guest'>" + place.max_guest + " Guest" + (place.max_guest != 1 ? "s" : "") + "</div>");
-        information.append("<div class='number_rooms'>" + place.number_rooms + " Bedroom" + (place.number_rooms != 1 ? "s" : "") + "</div>");
-        information.append("<div class='number_bathrooms'>" + place.number_bathrooms + " Bathroom" + (place.number_bathrooms != 1 ? "s" : "") + "</div>");
-        article.append(information);
+        information.append($("<div>" + place.max_guest + " Guests</div>")
+          .addClass('max_guest'));
 
-        let user = $("<div>").addClass("user");
-        user.append("<b>Owner:</b> " +  "<span>" + place.user.first_name + " " + place.user.last_name + "</span>");
-        article.append(user);
+        information.append($("<div>" + place.number_rooms + " Bedrooms</div>")
+          .addClass('number_rooms'));
+
+        information.append($("<div>" + place.number_bathrooms + " Bathrooms</div>")
+          .addClass('number_bathrooms'));
+
+        article.append(information);
 
         let description = $("<div>").addClass("description");
         description.append(place.description);
